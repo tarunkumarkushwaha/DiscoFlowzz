@@ -1,0 +1,29 @@
+{
+  "username": "tarun",
+  "videos": [
+    {
+      "name": "Video1",
+      "type": "mp4",
+      "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
+      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+    },
+    {
+      "name": "Video2",
+      "type": "mp4",
+      "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
+      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+    },
+    {
+      "name": "Video3",
+      "type": "mp4",
+      "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
+      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+    },
+    {
+      "name": "Video4",
+      "type": "mp4",
+      "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
+      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+    }
+  ]
+}

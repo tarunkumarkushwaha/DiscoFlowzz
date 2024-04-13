@@ -1,16 +1,20 @@
-import { useState } from 'react'
+import Navbar from './component/Navbar'
+import SideBar from './component/SideBar'
+import { useState } from 'react';
 import './App.css'
-import Dashboard from './routes/Dashboard'
-import MusicvisualiserOld from './component/MusicvisualiserOld'
 
 function App() {
+  const [sidebar, setsidebar] = useState(false);
+  const [query, setQuery] = useState('')
 
-
+  const toggleNav = function () {
+    setsidebar(!sidebar)
+  }
 
   return (
     <>
-      <Dashboard/>
-      {/* <MusicvisualiserOld/> */}
+      <Navbar query={query} setQuery={setQuery} toggleNav={toggleNav} />
+      <SideBar sidebar={sidebar} toggleNav={toggleNav} />
     </>
   )
 }

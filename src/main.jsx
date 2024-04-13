@@ -6,26 +6,29 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { store } from './app/store.js'
-import { Provider } from 'react-redux'
+import Dashboard from './routes/Dashboard'
+import EditProject from './routes/EditProject.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <><App/><Dashboard /></>,
   },
-  // {
-  //   path: "/result",
-  //   element: <LearningPathResult />,
-  // },
+  {
+    path: "/edit",
+    element: <><App/><EditProject /></>,
+  },
+  {
+    path: "/edit/:project",
+    element: <><App/><EditProject /></>,
+  },
 ]);
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store}>
-      <RouterProvider router={router} >
-        <App />
-      </RouterProvider>
-    </Provider>
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
   </React.StrictMode>,
 )
