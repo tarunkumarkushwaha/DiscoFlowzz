@@ -1,10 +1,9 @@
 import React from 'react'
-import ProjectBox from '../ProjectBox'
 const EditorAssets = () => {
   return (
     <>
      <div>
-        <ProjectBox/>
+        assets 
      </div>
     </>
   )

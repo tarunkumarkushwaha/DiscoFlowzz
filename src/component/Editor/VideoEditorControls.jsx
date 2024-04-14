@@ -1,20 +1,24 @@
 import { forwardRef, useEffect, useState } from "react"
+import RedoIcon from '@mui/icons-material/Redo';
+import UndoIcon from '@mui/icons-material/Undo';
+import ContentCutIcon from '@mui/icons-material/ContentCut';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 
 const VideoEditorControls = forwardRef((props, ref) => {
-
-    const [volume, setVolume] = useState(1);
     const [currentTime, setCurrentTime] = useState(["00", "00"]);
     const [currentTimeSec, setCurrentTimeSec] = useState(0);
     const [duration, setDuration] = useState(["00", "00"]);
     const [durationSec, setDurationSec] = useState(0);
-    let { isPlaying, togglePlay, thumb } = props
+    let { isPlaying, thumb } = props
 
     const videoref = ref
 
-    const handleVolumeChange = (event) => {
+    const handleRangeChange = (event) => {
         const value = parseFloat(event.target.value);
-        setVolume(value);
-        videoref.current.volume = value;
+        setCurrentTimeSec(value);
+        videoref.current.currentTime = value;
     };
 
     const sec2Min = (sec) => {
@@ -25,6 +29,8 @@ const VideoEditorControls = forwardRef((props, ref) => {
             sec: secRemain,
         };
     };
+
+    // console.log(parseFloat(currentTimeSec / durationSec * 100), durationSec, currentTimeSec)
 
     useEffect(() => {
         let interval
@@ -46,31 +52,41 @@ const VideoEditorControls = forwardRef((props, ref) => {
     return (
         <>
             <div className="absolute bottom-0 left-44">
-                <button onClick={togglePlay}>
-                    {isPlaying ? 'Pause' : 'Play'}
-                </button>
-                <input
-                    type="range"
-                    min={0}
-                    max={1}
-                    value={volume}
-                    onChange={handleVolumeChange}
-                />
-                <div className="duration">
-                    {currentTime[0]}:{currentTime[1]} / {duration[0]}:{duration[1]}
+                <div className="flex justify-between">
+                    <div className="flex">
+                        <button className="mx-2"><UndoIcon fontSize='medium' /></button>
+                        <button className="mx-2"><RedoIcon fontSize='medium' /></button>
+                        <button className="mx-2"><ContentCutIcon fontSize='medium' /></button>
+                        <button className="mx-2"><ContentCopyIcon fontSize='medium' /></button>
+                        <div className="flex">
+                            <button className="mx-2"><ZoomInIcon fontSize='medium' /></button>
+                            <div className="h-4 w-28 border border-slate-600 mt-1 p-1">
+                                {/* width can be changed to veiw zoom level */}
+                               <div style={{width : 50+"%"}} className="bg-slate-600 h-2"></div>
+                            </div>
+                            <button className="mx-2"><ZoomOutIcon fontSize='medium' /></button>
+                        </div>
+                    </div>
+
+                    <div className="duration">
+                        {currentTime[0]}:{currentTime[1]} / {duration[0]}:{duration[1]}
+                    </div>
                 </div>
+
                 <div style={{ backgroundImage: "url(" + `${thumb})` }} className="m-4 relative w-[80vw] h-20 bg-center bg-repeat-x bg-contain">
-                <input
-                    type="range"
-                    min={0}
-                    max={durationSec && durationSec}
-                    default={0}
-                    value={currentTimeSec}
-                    className="w-[80vw] range absolute top-0"
-                    onChange={(e) => {
-                        videoref.current.currentTime = e.target.value;
-                    }}
-                />
+                    <div style={{ width: currentTimeSec == 0 ? 0 + "%" : parseFloat(currentTimeSec / durationSec * 100) + "%" }} className="relative w-[80vw]">
+                        <div className={`bg-slate-950 absolute -top-2 -right-[10px] w-4 h-3 rounded-2xl`}></div>
+                    </div>
+                    <input
+                        type="range"
+                        min={0}
+                        max={durationSec && durationSec}
+                        step={0.001}
+                        default={currentTimeSec}
+                        value={currentTimeSec}
+                        className="w-[80vw] range absolute -top-1"
+                        onChange={handleRangeChange}
+                    />
                 </div>
             </div>
         </>
