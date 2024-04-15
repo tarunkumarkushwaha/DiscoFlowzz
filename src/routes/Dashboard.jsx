@@ -11,8 +11,7 @@ const Dashboard = () => {
 
   return (
     <>
-      <div>
-        <div className="mx-28 my-4 p-4 flex justify-between">
+        <div className="mx-28 my-4 p-4 flex justify-between smooth-entry">
           <div className="flex">
             <button onClick={()=>navigate('/edit')} type="button" className="flex justify-between items-center w-40 h-10 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
               <ContentCutIcon/><p>Create Project</p></button>
@@ -25,7 +24,6 @@ const Dashboard = () => {
         <div className="flex mx-28">
            {arr && arr.map((item,i)=> <ProjectBox item={item} key={i}/>)}
         </div>
-      </div>
     </>
   )
 }

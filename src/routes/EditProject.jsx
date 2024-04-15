@@ -10,20 +10,22 @@ import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
+import AddAudio from '../component/Editor/AddAudio'
+import AddSubtitle from '../component/Editor/AddSubtitle'
 
 const EditProject = () => {
     const [volume, setVolume] = useState(1);
-    const [editorSetting, setEditorSetting] = useState(true)
-    const [editorassets, setEditorassets] = useState(false)
+    const [feature, setfeature] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false);
+    let featureArr = [<EditorSetting />, <EditorAssets />, <AddAudio />, <AddSubtitle />,]
     let urlparams = useParams()
 
     let currentdata = urlparams.project ? data.videos.find(o => o.name == urlparams.project) : data.videos[3]
 
 
     let videoref = useRef()
-    const toggleSetting = function () {
-        setEditorSetting(!editorSetting)
+    const toggleSetting = function (a) {
+        setfeature(a)
     }
     const togglePlay = () => {
         const video = videoref.current;
@@ -44,10 +46,9 @@ const EditProject = () => {
 
     return (
         <>
-            <div className="relative flex justify-start">
-                <EditorSidebar setSetting={toggleSetting} setEditorassets={setEditorassets} />
-                {editorSetting && <EditorSetting />}
-                {editorassets && <EditorAssets />}
+            <div className="relative flex justify-start smooth-entry">
+                <EditorSidebar setSetting={toggleSetting} />
+                {featureArr[feature]}
                 <div className='absolute right-5 top-10 w-[480px]'>
                     <video
                         ref={videoref}

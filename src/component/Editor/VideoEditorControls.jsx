@@ -10,7 +10,7 @@ const VideoEditorControls = forwardRef((props, ref) => {
     const [currentTime, setCurrentTime] = useState(["00", "00"]);
     const [currentTimeSec, setCurrentTimeSec] = useState(0);
     const [duration, setDuration] = useState(["00", "00"]);
-    const [durationSec, setDurationSec] = useState(0);
+    const [durationSec, setDurationSec] = useState(10);
     let { isPlaying, thumb } = props
 
     const videoref = ref
@@ -18,7 +18,7 @@ const VideoEditorControls = forwardRef((props, ref) => {
     const handleRangeChange = (event) => {
         const value = parseFloat(event.target.value);
         setCurrentTimeSec(value);
-        videoref.current.currentTime = value;
+        if (videoref.current) { videoref.current.currentTime = value; }
     };
 
     const sec2Min = (sec) => {
@@ -62,7 +62,7 @@ const VideoEditorControls = forwardRef((props, ref) => {
                             <button className="mx-2"><ZoomInIcon fontSize='medium' /></button>
                             <div className="h-4 w-28 border border-slate-600 mt-1 p-1">
                                 {/* width can be changed to veiw zoom level */}
-                               <div style={{width : 50+"%"}} className="bg-slate-600 h-2"></div>
+                                <div style={{ width: 50 + "%" }} className="bg-slate-600 h-2"></div>
                             </div>
                             <button className="mx-2"><ZoomOutIcon fontSize='medium' /></button>
                         </div>
@@ -79,18 +79,16 @@ const VideoEditorControls = forwardRef((props, ref) => {
                     </div>
                     <input
                         type="range"
-                        min={0}
-                        max={durationSec && durationSec}
-                        step={0.001}
-                        default={currentTimeSec}
-                        value={currentTimeSec}
                         className="w-[80vw] range absolute -top-1"
+                        min={0}
+                        step={0.001}
+                        max={durationSec}
+                        value={currentTimeSec}
                         onChange={handleRangeChange}
                     />
                 </div>
             </div>
         </>
-
     );
 })
 

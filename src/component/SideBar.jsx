@@ -22,7 +22,7 @@ const SideBar = ({ sidebar, toggleNav }) => {
     }, [closeOpenMenus]);
     return (
         <>
-            <aside ref={menuRef} className={`fixed z-20 top-0 left-0 h-full transition-all duration-1000 ease-in-out ${!sidebar ? "md:w-[25vw] w-[60vw] -translate-x-full" : "md:w-[20vw] w-[30vw] -translate-x-1"}`}>
+            <aside ref={menuRef} className={`fixed smooth-entry z-20 top-0 left-0 h-full transition-all duration-1000 ease-in-out ${!sidebar ? "md:w-[25vw] w-[60vw] -translate-x-full" : "md:w-[20vw] w-[30vw] -translate-x-1"}`}>
                 <div className="h-full px-3 py-4 overflow-y-auto bg-gray-800">
                     <div className="flex justify-center items-center p-2 text-gray-100 cursor-pointer rounded-lg">
                         <span className="ms-3 font-extrabold text-3xl">DiscoFlowzz</span>
