@@ -30,15 +30,15 @@ const EditorSidebar = ({ setSetting }) => {
                             <SubtitlesIcon />
                             <p className='text-sm'>Subtitle</p>
                         </li>
-                        <li className='cursor-pointer flex flex-col items-center justify-center rounded-xl p-3 w-20 m-1 bg-slate-200'>
+                        <li onClick={() => setSetting(4)} className='cursor-pointer flex flex-col items-center justify-center rounded-xl p-3 w-20 m-1 bg-slate-200'>
                             <TitleIcon />
                             <p className='text-sm'>Title</p>
                         </li>
-                        <li className='cursor-pointer flex flex-col items-center justify-center rounded-xl p-3 w-20 m-1 bg-slate-200'>
+                        <li onClick={() => setSetting(5)} className='cursor-pointer flex flex-col items-center justify-center rounded-xl p-3 w-20 m-1 bg-slate-200'>
                             <InsertDriveFileIcon />
                             <p className='text-sm'>Templetes</p>
                         </li>
-                        <li className='cursor-pointer flex flex-col items-center justify-center rounded-xl p-3 w-20 m-1 bg-slate-200'>
+                        <li onClick={() => setSetting(6)} className='cursor-pointer flex flex-col items-center justify-center rounded-xl p-3 w-20 m-1 bg-slate-200'>
                             <Filter1Icon />
                             <p className='text-sm'>Transitions</p>
                         </li>

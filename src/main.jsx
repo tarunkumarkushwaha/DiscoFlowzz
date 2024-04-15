@@ -9,6 +9,8 @@ import {
 import Dashboard from './routes/Dashboard'
 import EditProject from './routes/EditProject.jsx';
 import ErrorPage from './routes/ErrorPage.jsx';
+import Output from './routes/Output.jsx';
+import RecordVideos from './routes/RecordVideos.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,16 @@ const router = createBrowserRouter([
   {
     path: "/edit/:project",
     element: <><App/><EditProject /></>,
+    errorElement: <><App/><ErrorPage/></>
+  },
+  {
+    path: "/output",
+    element: <><App/><Output/></>,
+    errorElement: <><App/><ErrorPage/></>
+  },
+  {
+    path: "/record",
+    element: <><App/><RecordVideos/></>,
     errorElement: <><App/><ErrorPage/></>
   },
 ]);

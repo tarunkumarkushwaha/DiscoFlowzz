@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import VideoEditorControls from '../component/Editor/VideoEditorControls'
 import EditorSidebar from '../component/Editor/EditorSidebar'
-import EditorSetting from '../component/Editor/EditorSetting'
-import EditorAssets from '../component/Editor/EditorAssets'
+import EditorSetting from '../component/Editor/EditorsidebarComponent/EditorSetting'
+import EditorAssets from '../component/Editor/EditorsidebarComponent/EditorAssets'
 import data from '../DummyJSONdata/data.json'
 import { useParams } from 'react-router-dom'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -10,14 +10,18 @@ import PauseCircleOutlineIcon from '@mui/icons-material/PauseCircleOutline';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
-import AddAudio from '../component/Editor/AddAudio'
-import AddSubtitle from '../component/Editor/AddSubtitle'
+import AddAudio from '../component/Editor/EditorsidebarComponent/AddAudio'
+import AddSubtitle from '../component/Editor/EditorsidebarComponent/AddSubtitle'
+import AddTitle from '../component/Editor/EditorsidebarComponent/AddTitle'
+import AddTransition from '../component/Editor/EditorsidebarComponent/AddTransition'
+import AddTemplete from '../component/Editor/EditorsidebarComponent/AddTemplete'
 
 const EditProject = () => {
     const [volume, setVolume] = useState(1);
     const [feature, setfeature] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false);
-    let featureArr = [<EditorSetting />, <EditorAssets />, <AddAudio />, <AddSubtitle />,]
+    let featureArr = [<EditorSetting />, <EditorAssets />, <AddAudio />, <AddSubtitle />,
+    <AddTitle />,<AddTemplete />,<AddTransition />,]
     let urlparams = useParams()
 
     let currentdata = urlparams.project ? data.videos.find(o => o.name == urlparams.project) : data.videos[3]
