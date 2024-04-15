@@ -51,7 +51,7 @@ const VideoEditorControls = forwardRef((props, ref) => {
 
     return (
         <>
-            <div className="absolute bottom-0 left-44">
+            <div className="absolute bottom-2 left-[50%] -translate-x-[50%] mx-10">
                 <div className="flex justify-between">
                     <div className="flex">
                         <button className="mx-2"><UndoIcon fontSize='medium' /></button>

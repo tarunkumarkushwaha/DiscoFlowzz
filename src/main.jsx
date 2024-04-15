@@ -11,32 +11,33 @@ import EditProject from './routes/EditProject.jsx';
 import ErrorPage from './routes/ErrorPage.jsx';
 import Output from './routes/Output.jsx';
 import RecordVideos from './routes/RecordVideos.jsx';
+import Foot from './component/Foot.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <><App/><Dashboard /></>,
-    errorElement: <><App/><ErrorPage/></>
+    element: <><App/><Dashboard /><Foot/></>,
+    errorElement: <><App/><ErrorPage/><Foot/></>
   },
   {
     path: "/edit",
-    element: <><App/><EditProject /></>,
-    errorElement: <><App/><ErrorPage/></>
+    element: <><App/><EditProject /><Foot/></>,
+    errorElement: <><App/><ErrorPage/><Foot/></>
   },
   {
     path: "/edit/:project",
-    element: <><App/><EditProject /></>,
-    errorElement: <><App/><ErrorPage/></>
+    element: <><App/><EditProject /><Foot/></>,
+    errorElement: <><App/><ErrorPage/><Foot/></>
   },
   {
     path: "/output",
-    element: <><App/><Output/></>,
-    errorElement: <><App/><ErrorPage/></>
+    element: <><App/><Output/><Foot/></>,
+    errorElement: <><App/><ErrorPage/><Foot/></>
   },
   {
     path: "/record",
-    element: <><App/><RecordVideos/></>,
-    errorElement: <><App/><ErrorPage/></>
+    element: <><App/><RecordVideos/><Foot/></>,
+    errorElement: <><App/><ErrorPage/><Foot/></>
   },
 ]);
 

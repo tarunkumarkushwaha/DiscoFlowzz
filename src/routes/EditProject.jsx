@@ -21,7 +21,7 @@ const EditProject = () => {
     const [feature, setfeature] = useState(0)
     const [isPlaying, setIsPlaying] = useState(false);
     let featureArr = [<EditorSetting />, <EditorAssets />, <AddAudio />, <AddSubtitle />,
-    <AddTitle />,<AddTemplete />,<AddTransition />,]
+    <AddTitle />, <AddTemplete />, <AddTransition />,]
     let urlparams = useParams()
 
     let currentdata = urlparams.project ? data.videos.find(o => o.name == urlparams.project) : data.videos[3]
@@ -50,43 +50,46 @@ const EditProject = () => {
 
     return (
         <>
-            <div className="relative flex justify-start smooth-entry">
+            <div className="relative flex md:flex-row flex-col sm:justify-between justify-center items-center sm:items-start smooth-entry">
                 <EditorSidebar setSetting={toggleSetting} />
-                {featureArr[feature]}
-                <div className='absolute right-5 top-10 w-[480px]'>
-                    <video
-                        ref={videoref}
-                        className='rounded-md'
-                        onClick={togglePlay}>
-                        <source src={currentdata.src} type="video/mp4" />
-                        Your browser does not support the video.
-                    </video>
-                    <div className="flex justify-between mx-8">
-                        <div className="flex">
-                            <button className="mx-2"><SkipPreviousIcon fontSize='large' /></button>
-                            <button onClick={togglePlay}>
-                                {isPlaying ? <PauseCircleOutlineIcon fontSize='large' /> : <PlayArrowIcon fontSize='large' />}
-                            </button>
-                            <button className="mx-2"><SkipNextIcon fontSize='large' /></button>
-                        </div>
+                <div className='flex flex-col items-center justify-center rounded-lg m-10 smooth-entry sm:h-72 h-60 sm:w-80 w-60 border border-gray-300'>
+                    {featureArr[feature]}
+                </div>
+                <div className="flex justify-center items-center m-10 md:mb-0 mb-40">
+                    <div className='w-96 m-4 mx-10'>
+                        <video
+                            ref={videoref}
+                            className='rounded-md smooth-entry'
+                            onClick={togglePlay}>
+                            <source src={currentdata.src} type="video/mp4" />
+                            Your browser does not support the video.
+                        </video>
+                        <div className="flex justify-between mx-8">
+                            <div className="flex">
+                                <button className="mx-2"><SkipPreviousIcon fontSize='large' /></button>
+                                <button onClick={togglePlay}>
+                                    {isPlaying ? <PauseCircleOutlineIcon fontSize='large' /> : <PlayArrowIcon fontSize='large' />}
+                                </button>
+                                <button className="mx-2"><SkipNextIcon fontSize='large' /></button>
+                            </div>
 
-                        <div className="flex p-6">
-                            <h1 className="text-sm font-medium mx-2"><VolumeUpIcon /></h1>
-                            <input
-                                type="range"
-                                className=" accent-slate-700"
-                                min={0}
-                                step={0.01}
-                                max={1}
-                                value={volume}
-                                onChange={handleVolumeChange}
-                            />
+                            <div className="flex p-6">
+                                <h1 className="text-sm font-medium mx-2"><VolumeUpIcon /></h1>
+                                <input
+                                    type="range"
+                                    className=" accent-slate-700"
+                                    min={0}
+                                    step={0.01}
+                                    max={1}
+                                    value={volume}
+                                    onChange={handleVolumeChange}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <VideoEditorControls thumb={currentdata.thumb} ref={videoref} isPlaying={isPlaying} togglePlay={togglePlay} />
             </div>
-
+            <VideoEditorControls thumb={currentdata.thumb} ref={videoref} isPlaying={isPlaying} togglePlay={togglePlay} />
         </>
     )
 }
