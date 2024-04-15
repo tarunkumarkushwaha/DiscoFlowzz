@@ -51,35 +51,35 @@ const VideoEditorControls = forwardRef((props, ref) => {
 
     return (
         <>
-            <div className="absolute bottom-2 left-[50%] -translate-x-[50%] mx-10">
-                <div className="flex justify-between">
-                    <div className="flex">
+            <div className="absolute bottom-2 md:left-[50%] sm:left-[45%] left-[42%] -translate-x-[50%] mx-8">
+                <div className="flex sm:justify-between justify-center items-center flex-wrap">
+                    <div className="flex sm:justify-between justify-center items-center flex-wrap p-4">
                         <button className="mx-2"><UndoIcon fontSize='medium' /></button>
                         <button className="mx-2"><RedoIcon fontSize='medium' /></button>
                         <button className="mx-2"><ContentCutIcon fontSize='medium' /></button>
                         <button className="mx-2"><ContentCopyIcon fontSize='medium' /></button>
-                        <div className="flex">
+                        <div className="flex p-2">
                             <button className="mx-2"><ZoomInIcon fontSize='medium' /></button>
                             <div className="h-4 w-28 border border-slate-600 mt-1 p-1">
-                                {/* width can be changed to veiw zoom level */}
+                                
                                 <div style={{ width: 50 + "%" }} className="bg-slate-600 h-2"></div>
                             </div>
                             <button className="mx-2"><ZoomOutIcon fontSize='medium' /></button>
                         </div>
                     </div>
 
-                    <div className="duration">
-                        {currentTime[0]}:{currentTime[1]} / {duration[0]}:{duration[1]}
+                    <div className="p-2">
+                        {currentTime[0]}:{currentTime[1]}-{duration[0]}:{duration[1]}
                     </div>
                 </div>
 
-                <div style={{ backgroundImage: "url(" + `${thumb})` }} className="m-4 relative w-[80vw] h-20 bg-center bg-repeat-x bg-contain">
-                    <div style={{ width: currentTimeSec == 0 ? 0 + "%" : parseFloat(currentTimeSec / durationSec * 100) + "%" }} className="relative w-[80vw]">
+                <div style={{ backgroundImage: "url(" + `${thumb})` }} className="m-4 relative w-[70vw] h-20 bg-center bg-repeat-x bg-contain">
+                    <div style={{ width: currentTimeSec == 0 ? 0 + "%" : parseFloat(currentTimeSec / durationSec * 100) + "%" }} className="relative w-[70vw]">
                         <div className={`bg-slate-950 absolute -top-2 -right-[10px] w-4 h-3 rounded-2xl`}></div>
                     </div>
                     <input
                         type="range"
-                        className="w-[80vw] range absolute -top-1"
+                        className="w-[70vw] range absolute -top-1"
                         min={0}
                         step={0.001}
                         max={durationSec}

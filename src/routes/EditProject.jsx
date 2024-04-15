@@ -50,22 +50,22 @@ const EditProject = () => {
 
     return (
         <>
-            <div className="relative flex md:flex-row flex-col sm:justify-between justify-center items-center sm:items-start smooth-entry">
+            <div className="relative flex md:flex-row flex-col md:justify-between justify-center items-center md:items-start smooth-entry">
                 <EditorSidebar setSetting={toggleSetting} />
                 <div className='flex flex-col items-center justify-center rounded-lg m-10 smooth-entry sm:h-72 h-60 sm:w-80 w-60 border border-gray-300'>
                     {featureArr[feature]}
                 </div>
-                <div className="flex justify-center items-center m-10 md:mb-0 mb-40">
-                    <div className='w-96 m-4 mx-10'>
+                <div className="flex justify-center items-center m-10 md:mb-0 mb-72">
+                    <div className=''>
                         <video
                             ref={videoref}
+                            width={400}
                             className='rounded-md smooth-entry'
                             onClick={togglePlay}>
                             <source src={currentdata.src} type="video/mp4" />
-                            Your browser does not support the video.
                         </video>
-                        <div className="flex justify-between mx-8">
-                            <div className="flex">
+                        <div className="flex justify-center items-center flex-wrap mx-4">
+                            <div className="flex p-2">
                                 <button className="mx-2"><SkipPreviousIcon fontSize='large' /></button>
                                 <button onClick={togglePlay}>
                                     {isPlaying ? <PauseCircleOutlineIcon fontSize='large' /> : <PlayArrowIcon fontSize='large' />}
@@ -73,7 +73,7 @@ const EditProject = () => {
                                 <button className="mx-2"><SkipNextIcon fontSize='large' /></button>
                             </div>
 
-                            <div className="flex p-6">
+                            <div className="flex p-2">
                                 <h1 className="text-sm font-medium mx-2"><VolumeUpIcon /></h1>
                                 <input
                                     type="range"
