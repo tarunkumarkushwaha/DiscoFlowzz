@@ -21,7 +21,7 @@ const Dashboard = () => {
           <h2 className='font-bold underline cursor-pointer'>All Videos {">"}</h2>
         </div>
         <h2 className='font-bold mx-28 p-4 text-center'>Recent Videos</h2>
-        <div className="flex flex-wrap justify-center items-center mx-28">
+        <div className="flex flex-wrap justify-center items-center mx-28 my-4">
            {arr && arr.map((item,i)=> <ProjectBox item={item} key={i}/>)}
         </div>
     </>

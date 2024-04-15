@@ -5,25 +5,33 @@
       "name": "Video1",
       "type": "mp4",
       "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
-      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg",
+      "contrast":"10",
+      "brightness" : "10"
     },
     {
       "name": "Video2",
       "type": "mp4",
-      "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
-      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+      "src": "https://cdn.pixabay.com/video/2021/05/07/73405-548671143_large.mp4",
+      "thumb": "https://cdn.pixabay.com/photo/2019/09/19/17/57/kyoto-4489912_1280.jpg",
+      "contrast":"10",
+      "brightness" : "10"
     },
     {
       "name": "Video3",
       "type": "mp4",
-      "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
-      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+      "src": "https://cdn.pixabay.com/video/2022/09/16/131506-750569073_large.mp4",
+      "thumb": "https://cdn.pixabay.com/photo/2018/07/31/05/42/social-media-3574310_1280.jpg",
+      "contrast":"10",
+      "brightness" : "10"
     },
     {
       "name": "Video4",
       "type": "mp4",
-      "src": "https://cdn.pixabay.com/video/2022/04/05/113004-696349232_large.mp4",
-      "thumb": "https://cdn.pixabay.com/photo/2024/03/02/19/30/magnolia-8609277_1280.jpg"
+      "src": "https://cdn.pixabay.com/video/2016/01/29/1992-153555258_large.mp4",
+      "thumb": "https://cdn.pixabay.com/photo/2018/08/15/10/13/network-3607641_1280.jpg",
+      "contrast":"10",
+      "brightness" : "10"
     }
   ]
 }

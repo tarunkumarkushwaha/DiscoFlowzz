@@ -5,6 +5,7 @@ import ContentCutIcon from '@mui/icons-material/ContentCut';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import { useNavigate } from "react-router-dom";
 
 const VideoEditorControls = forwardRef((props, ref) => {
     const [currentTime, setCurrentTime] = useState(["00", "00"]);
@@ -12,6 +13,7 @@ const VideoEditorControls = forwardRef((props, ref) => {
     const [duration, setDuration] = useState(["00", "00"]);
     const [durationSec, setDurationSec] = useState(10);
     let { isPlaying, thumb } = props
+    const navigate = useNavigate()
 
     const videoref = ref
 
@@ -53,6 +55,9 @@ const VideoEditorControls = forwardRef((props, ref) => {
         <>
             <div className="absolute bottom-2 md:left-[50%] sm:left-[45%] left-[42%] -translate-x-[50%] mx-8">
                 <div className="flex sm:justify-between justify-center items-center flex-wrap">
+                    <div className="p-2 font-medium text-lg w-32">
+                        {currentTime[0]}:{currentTime[1]}-{duration[0]}:{duration[1]}
+                    </div>
                     <div className="flex sm:justify-between justify-center items-center flex-wrap p-4">
                         <button className="mx-2"><UndoIcon fontSize='medium' /></button>
                         <button className="mx-2"><RedoIcon fontSize='medium' /></button>
@@ -61,16 +66,15 @@ const VideoEditorControls = forwardRef((props, ref) => {
                         <div className="flex p-2">
                             <button className="mx-2"><ZoomInIcon fontSize='medium' /></button>
                             <div className="h-4 w-28 border border-slate-600 mt-1 p-1">
-                                
+
                                 <div style={{ width: 50 + "%" }} className="bg-slate-600 h-2"></div>
                             </div>
                             <button className="mx-2"><ZoomOutIcon fontSize='medium' /></button>
                         </div>
                     </div>
 
-                    <div className="p-2">
-                        {currentTime[0]}:{currentTime[1]}-{duration[0]}:{duration[1]}
-                    </div>
+                    <button onClick={() => navigate('/output')} type="button" className="flex justify-between items-center w-20 h-6 text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+                        export</button>
                 </div>
 
                 <div style={{ backgroundImage: "url(" + `${thumb})` }} className="m-4 relative w-[70vw] h-20 bg-center bg-repeat-x bg-contain">
